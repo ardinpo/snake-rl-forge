@@ -2,6 +2,14 @@
 
 A research-oriented Snake reinforcement-learning environment built with PyTorch.
 
+
+## Demo
+
+![Trained Snake Agent](demo.gif)
+
+This demo shows a trained agent exhibiting stable navigation and late-game risk avoidance.
+
+
 This project implements a reinforcement-learning Snake agent designed to study learning behavior, reward shaping, and control dynamics under delayed consequences. The agent learns purely from numerical rewards and penalties, without scripted rules or hard-coded strategies.
 
 The repository is intended as an experimental sandbox for observing emergent behavior and failure modes in reinforcement learning.
