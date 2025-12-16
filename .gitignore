@@ -1,0 +1,12 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.env
+.venv
+
+# Training artifacts (optional but recommended)
+checkpoints/
+results/
