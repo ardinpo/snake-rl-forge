@@ -1,139 +1,75 @@
-# snake-rl-forge
-The Game Snake were AI learns to play the game snake using Pytorch
-🐍 Snake RL — Executive Control–Focused Reinforcement Learning
-Overview
+# Snake RL — Reinforcement Learning Sandbox
 
-This project implements a reinforcement-learning Snake agent used to study learning behavior, reward shaping, and executive control, rather than scripted logic or hard-coded rules.
+A research-oriented Snake reinforcement-learning environment built with PyTorch.
 
-The agent learns purely from numerical consequences (reward / penalty) and develops behaviors such as late-game caution, risk avoidance, and reward exploitation when incentives are misaligned.
+This project implements a reinforcement-learning Snake agent designed to study learning behavior, reward shaping, and control dynamics under delayed consequences. The agent learns purely from numerical rewards and penalties, without scripted rules or hard-coded strategies.
 
-This repository is intended as an experimental sandbox, not a benchmark bot.
+The repository is intended as an experimental sandbox for observing emergent behavior and failure modes in reinforcement learning.
 
-What This Is
+---
 
-A reinforcement-learning Snake environment
+## What This Is
 
-A testbed for:
+- A reinforcement-learning Snake environment
+- A testbed for studying:
+  - delayed reward effects
+  - policy collapse
+  - reward exploitation (looping, stalling)
+  - survival vs. reward tradeoffs
+- A compact environment where small reward changes produce large behavioral shifts
 
-delayed reward effects
+---
 
-policy collapse
+## What This Is Not
 
-reward hacking (e.g., looping, stalling)
+❌ A scripted or rule-based Snake bot  
+❌ A shortest-path solver  
+❌ A benchmark or “perfect” Snake agent  
 
-survival vs greed tradeoffs
+The agent does not know explicit rules like “avoid walls.”  
+It updates its policy solely through gradient-based learning from outcomes.
 
-A concrete demonstration of how learning differs from rule-based logic
+---
 
-What This Is Not
+## Learning Loop
 
-❌ Not rule-based / ladder logic
+1. Observe environment state  
+2. Predict action values  
+3. Select an action (with exploration)  
+4. Receive reward or penalty  
+5. Compute prediction error  
+6. Update network weights  
 
-❌ Not scripted game AI
+This process allows the agent to:
+- learn from failure
+- propagate consequences backward
+- trade short-term reward for long-term survival
+- exploit reward structures when misaligned
 
-❌ Not a shortest-path solver
+---
 
-❌ Not AI consciousness or sentience
+## Why Snake?
 
-❌ Not a “perfect” Snake player
+Snake is well-suited for reinforcement learning research because it combines:
+- simple mechanics
+- a large state space
+- delayed consequences
+- clear and observable failure modes
 
-The agent does not know rules like “don’t hit walls.”
-It only learns via matrix-based gradient updates from outcomes.
+This makes it an effective environment for studying learning dynamics and control behavior.
 
-Core Learning Loop
+---
 
-Observe environment state
+## Key Observations
 
-Predict action values (matrix math)
+- Learning behavior emerges from reward structure
+- Optimization alone does not guarantee stability
+- Control mechanisms influence long-term performance
+- Misaligned incentives produce predictable failure patterns
 
-Choose an action (with exploration)
+---
 
-Receive reward or penalty
+## Running
 
-Compute prediction error
-
-Update weights via gradient descent
-
-This allows the agent to:
-
-Learn from death
-
-Propagate consequences backward
-
-Trade short-term reward for long-term survival
-
-Exploit reward loopholes if they exist (by design)
-
-Why Snake?
-
-Snake is ideal because it has:
-
-Simple rules
-
-Huge state space
-
-Clear delayed consequences
-
-Easily observable failure modes
-
-Small reward changes produce dramatic behavioral shifts, making it a clean microscope for studying learning dynamics.
-
-Executive Control Angle
-
-This project explores the idea that:
-
-Optimization alone is insufficient — control and inhibition matter.
-
-Without constraints, learning agents will:
-
-exploit rewards
-
-stall progress
-
-loop safely
-
-sacrifice long-term success
-
-Some experiments optionally use an external Forge framework to introduce:
-
-reflection
-
-constraint checking
-
-drift detection
-
-refusal / rule freezing
-
-This is not consciousness — it is proto-executive control.
-
-Running
+```bash
 python main.py
-
-
-GPU acceleration is recommended due to heavy matrix operations during training.
-
-Key Takeaways
-
-Learning ≠ rules
-
-Optimization ≠ intelligence
-
-Reward ≠ values
-
-Control stabilizes learning
-
-Executive functions matter
-
-Final Note
-
-This project intentionally avoids anthropomorphism.
-
-The agent:
-
-does not feel
-
-does not understand
-
-does not want
-
-It optimizes — and optimization without control breaks.
